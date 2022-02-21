@@ -1,0 +1,14 @@
+﻿1-EntityCore,Sql,Tools import.
+2-Model folder => Film.cs, FilmTur.cs
+3-appsettings.json => "ConnectionStrings": { "DefaultConnection": "Server=.\\SQLEXPERESS;Database=coregeneric; Trusted_Connection=true;"
+4-DataContext.cs oluştur
+5-Startup.cs => services.AddDbContext<DataContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+6-migration.
+	-add-migration ekledb
+	-update-database
+7-Repository dosyası aç,IBaseRepository.
+8-BaseRepository
+9-FilmTurController
+10- Startup
+		-            services.AddTransient<IBaseRepository<FilmTur>,BaseRepository<FilmTur>>();
+		-

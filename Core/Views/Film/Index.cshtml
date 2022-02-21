@@ -1,0 +1,48 @@
+﻿@model Core.Models.FilmModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Film.FilmId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film.FilmAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film.FilmTur.TurAd)
+            </th>
+
+            <th>
+                Düzenle
+            </th>
+             
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.fList)
+        {
+        <tr>
+            <td> @item.FilmId</td>
+            <td>@item.FilmAd</td>
+            <td>@item.FilmTur.TurAd</td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.FilmId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FilmId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FilmId })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

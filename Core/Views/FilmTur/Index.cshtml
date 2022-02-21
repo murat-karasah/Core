@@ -1,0 +1,41 @@
+﻿@model Core.Models.FilmTurModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FilmTur.FilmTurId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FilmTur.FilmTurId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ftList) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilmTurId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TurAd)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.FilmTurId }) |
+                @Html.ActionLink("Details", "Details", new {  id= item.FilmTurId  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.FilmTurId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

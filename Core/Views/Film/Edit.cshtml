@@ -1,0 +1,54 @@
+﻿@model Core.Models.FilmModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Film</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Film.FilmAd" class="control-label"></label>
+                <input asp-for="Film.FilmAd" class="form-control" />
+                <span asp-validation-for="Film.FilmAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.FilmAciklama" class="control-label"></label>
+                <input asp-for="Film.FilmAciklama" class="form-control" />
+                <span asp-validation-for="Film.FilmAciklama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.FilmResim" class="control-label"></label>
+                <input asp-for="Film.FilmResim" class="form-control" />
+                <span asp-validation-for="Film.FilmResim" class="text-danger"></span>
+            </div>
+         
+
+            <div class="col-8">
+                <select class="form-control" id="exampleFormControlSelect1" asp-for="Film.FilmTurId" asp-items="@(new SelectList(Model.ftList,"FilmTurId","TurAd"))">
+                    <option value="0">--- Tür Seçiniz ---</option>
+                </select>
+              
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
